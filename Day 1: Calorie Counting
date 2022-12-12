@@ -1,0 +1,22 @@
+file = open("calories.txt", "r").read() # otwarcie i odczytanie pliku calories.txt, przypisanie jego zawartości do zmiennej file
+lines = file.split('\n')   # przekształcenie zawartości pliku do postaci listy i przypisanie jej do zmiennej lines
+print(lines)
+sum = 0
+sum_tab = []
+
+for i in lines:
+    """
+    Funkcja dodaje do siebie elementy listy lines i zapisuje jako element listy sum_tab.
+    Gdy pętla napotka znak ' ', zaczyna sumowanie od nowa - do nowego elementu 
+    listy sum_tab.
+    """
+    if i == '':
+        sum_tab.append(sum)
+        sum = 0
+        continue
+    sum += int(i)
+else:
+    sum_tab.append(sum) # dodanie ostatniego elementu do listy sum_tab
+
+print(sum_tab)
+print(f"Najwięcej kalorii niesionych przez jednego elfa, to: {max(sum_tab)}")
