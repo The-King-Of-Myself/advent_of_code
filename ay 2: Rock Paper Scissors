@@ -1,0 +1,31 @@
+"""                       for using one:
+Rock      - >    A, X    - >    1pkt
+Paper     - >    B, Y    - >    2pkt
+Scissors  - >    C, Z    - >    3pkt
+
+SCORE: lose = 0, draw = 3, win = 6
+"""
+
+file = open("rps_tournament.txt", "r").read()
+lines = file.split('\n')
+print(lines)
+
+score = 0  # wynik gracza
+
+for match in lines:
+    # pętla licząca oraz sumująca punkty w kolejnych meczach
+    if 'A' in match and 'Y' in match or 'B' in match and 'Z' in match or 'C' in match and 'X' in match:
+        score += 6
+    elif 'A' in match and 'X' in match or 'B' in match and 'Y' in match or 'C' in match and 'Z' in match:
+        score += 3
+    elif 'A' in match and 'Z' in match or 'B' in match and 'X' in match or 'C' in match and 'Y' in match:
+        score += 0
+
+    if 'X' in match:
+        score += 1
+    elif 'Y' in match:
+        score += 2
+    elif 'Z' in match:
+        score += 3
+
+print(f"Twój wynik końcowy w turnieju wynosi: {score} punktów.")
